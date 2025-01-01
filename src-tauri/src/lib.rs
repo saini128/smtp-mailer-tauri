@@ -99,8 +99,9 @@ fn get_smtp_credentials() -> Option<String> {
 
 #[tauri::command]
 async fn send_email(from: String, to: String, cc: String, subject: String, message: String) -> String {
-    
     println!("Sending email from: {}", from);
+    
+    // Get SMTP credentials
     let smtp_credentials = get_smtp_credentials().unwrap_or_default();
     let credentials: Vec<&str> = smtp_credentials.split(":").collect();
 
@@ -113,28 +114,60 @@ async fn send_email(from: String, to: String, cc: String, subject: String, messa
     let smtp_host = credentials[2].to_string();
     let smtp_port = credentials[3].to_string();
 
-    
-    let email = Message::builder()
-        .from(Mailbox::new(None, from.parse().unwrap()))  
-        .to(Mailbox::new(None, to.parse().unwrap()))  
-        .cc(Mailbox::new(None, cc.parse().unwrap())) 
-        .subject(subject)
-        .body(message)
-        .unwrap();  
+    // Parse the "from" field
+    let from_parsed = from
+        .split_once('<')
+        .and_then(|(name, email)| {
+            let email = email.trim_end_matches('>').trim();
+            Some(Mailbox::new(Some(name.trim().to_string()), email.parse().unwrap()))
+        })
+        .unwrap_or_else(|| {
+            Mailbox::new(None, from.parse().unwrap())
+        });
 
-    
-    let creds=Credentials::new(smtp_username, smtp_password);
+    // Parse multiple recipients in "to" and "cc"
+    let to_recipients: Vec<Mailbox> = to
+        .split(',')
+        .filter_map(|email| email.trim().parse().ok())
+        .map(|email| Mailbox::new(None, email))
+        .collect();
+
+    let cc_recipients: Vec<Mailbox> = cc
+        .split(',')
+        .filter_map(|email| email.trim().parse().ok())
+        .map(|email| Mailbox::new(None, email))
+        .collect();
+
+    // Build the email
+    let mut email_builder = Message::builder()
+        .from(from_parsed)
+        .subject(subject);
+
+    // Add "to" recipients
+    for recipient in to_recipients {
+        email_builder = email_builder.to(recipient);
+    }
+
+    // Add "cc" recipients
+    for recipient in cc_recipients {
+        email_builder = email_builder.cc(recipient);
+    }
+
+    let email = email_builder.body(message).unwrap();
+
+    // Create SMTP client and send email
+    let creds = Credentials::new(smtp_username, smtp_password);
     let client = SmtpTransport::starttls_relay(&smtp_host)
         .unwrap()
         .credentials(creds)
         .build();
 
-    
     match client.send(&email) {
         Ok(_) => "Email sent successfully".to_string(),
         Err(e) => format!("Failed to send email: {}", e),
     }
 }
+
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
