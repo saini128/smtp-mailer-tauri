@@ -3,12 +3,12 @@ import { invoke } from "@tauri-apps/api/core";
 import Header from "../components/Header";
 
 function HomePage() {
-    const [fromName, setFromName] = useState("CCS");
-    const [fromEmail, setFromEmail] = useState("support@ccstiet.com");
-    const [to, setTo] = useState("hushrajs@gmail.com, saini.hck@gmail.com");
-    const [cc, setCc] = useState("example1@gmail.com, example2@gmail.com");
-    const [subject, setSubject] = useState("This is a test emailer from Rust");
-    const [message, setMessage] = useState("Test message successfully sent from Rust");
+    const [fromName, setFromName] = useState("");
+    const [fromEmail, setFromEmail] = useState("");
+    const [to, setTo] = useState("");
+    const [cc, setCc] = useState("");
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
 
     const sanitizeEmails = (emailString) => {
         return emailString

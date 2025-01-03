@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
-// import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Form from "../components/Form";
 import Header from "../components/Header";
 
@@ -10,7 +9,6 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [host, setHost] = useState("");
   const [port, setPort] = useState("");
-  // const navigate = useNavigate(); // Initialize useNavigate
 
   async function storeSMTPcredentials() {
     const response = await invoke("store_smtp_credentials", {
