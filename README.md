@@ -25,5 +25,5 @@ To swap between 2 pages on view as they are connected to backend just add an exc
 #### Open-source Contribution is a great way of learning!!
 This project is a very easy starting point for open-source contribution. The code is too simple and straightforward for newbies. Every contribution is a step towards maturing as a coder so all the best for this journey! Happy Coding!!
 
-#### Visit me at singhropar.com
+#### Visit me at <a href="https://singhropar.com">singhropar.com</a>
 #### Contact - hushraj.singh@ccstiet.com
