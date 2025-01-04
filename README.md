@@ -5,7 +5,8 @@ A simple software that allows you to send quick emails with smtp credentials. Ca
 ## Contribution Guidelines
 
 #### Currently this project is up for frontend contributions only
-- ```git clone https://github.com/saini128/smtp-mailer-tauri```
+- Fork the repo
+- ```git clone <forked_repo url>```
 - ```cd smtp-mailer-tauri```
 - ```npm i```
 - ```npm run dev```
