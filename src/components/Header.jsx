@@ -8,7 +8,7 @@ function Header() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src="singhropar-logo.png" className="logo" alt="CCS logo" />
+        <img src="singhropar-logo.png" className="logo" alt="SinghRopar logo" />
       </a>
     </div>
   );
