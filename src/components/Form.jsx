@@ -1,7 +1,17 @@
 import React from "react";
 import InputField from "./InputField";
 
-function Form({ username, setUsername, password, setPassword, host, setHost, port, setPort, handleSubmit }) {
+function Form({
+  username,
+  setUsername,
+  password,
+  setPassword,
+  host,
+  setHost,
+  port,
+  setPort,
+  handleSubmit,
+}) {
   return (
     <form className="column" onSubmit={handleSubmit}>
       <InputField
@@ -25,7 +35,7 @@ function Form({ username, setUsername, password, setPassword, host, setHost, por
         value={port}
         onChange={(e) => setPort(e.target.value)}
       />
-      <div className="input-container">
+      <div className="input-container-submit">
         <button type="submit">Submit</button>
       </div>
     </form>

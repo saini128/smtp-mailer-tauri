@@ -14,8 +14,8 @@ function App() {
       console.log(response);
       if (response === null) {
         setCredentialsAvailable(false);
-      }
-      else {
+        console.log("true");
+      } else {
         setCredentialsAvailable(true);
       }
       console.log(credentialsAvailable);
@@ -24,11 +24,6 @@ function App() {
     checkCredentials();
   }, []);
 
-  return (
-    <div className="container">
-      {credentialsAvailable ? <HomePage /> : <LoginPage />}
-    </div>
-  );
+  return <div>{credentialsAvailable ? <HomePage /> : <LoginPage />}</div>;
 }
-
 export default App;

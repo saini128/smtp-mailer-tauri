@@ -17,12 +17,13 @@ function LoginPage() {
       host,
       port,
     });
+    console.log(username);
     setErrorMsg(response);
 
     // If credentials are stored successfully, navigate to homepage after 2 seconds
     if (response === "SMTP credentials stored successfully") {
       setTimeout(() => {
-        window.location.reload();// Redirect to the homepage
+        window.location.reload(); // Redirect to the homepage
       }, 2000); // 2-second delay
     }
   }
@@ -37,22 +38,27 @@ function LoginPage() {
   };
 
   return (
-    <main className="container">
-      <h1>Welcome to SinghRopar Mailer</h1>
-      <Header />
-      <p>Enter your SMTP Credentials to proceed.</p>
-      <Form
-        username={username}
-        setUsername={setUsername}
-        password={password}
-        setPassword={setPassword}
-        host={host}
-        setHost={setHost}
-        port={port}
-        setPort={setPort}
-        handleSubmit={handleSubmit}
-      />
-      <p>{errorMsg}</p>
+    <main className="container-login">
+      <img src="background.jpg" alt="email" />
+      <div className="right-login">
+        <Header />
+        <h1>Welcome to SinghRopar Mailer</h1>
+        <p>Enter your SMTP Credentials to proceed.</p>
+        <div className="form-login">
+          <Form
+            username={username}
+            setUsername={setUsername}
+            password={password}
+            setPassword={setPassword}
+            host={host}
+            setHost={setHost}
+            port={port}
+            setPort={setPort}
+            handleSubmit={handleSubmit}
+          />
+        </div>
+        <p>{errorMsg}</p>
+      </div>
     </main>
   );
 }
