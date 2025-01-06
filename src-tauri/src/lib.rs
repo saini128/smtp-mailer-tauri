@@ -112,7 +112,7 @@ async fn send_email(from: String, to: String, cc: String, subject: String, messa
     let smtp_username = credentials[0].to_string();
     let smtp_password = credentials[1].to_string();
     let smtp_host = credentials[2].to_string();
-    let smtp_port = credentials[3].to_string();
+    // let smtp_port = credentials[3].to_string();
 
     // Parse the "from" field
     let from_parsed = from
