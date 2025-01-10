@@ -18,9 +18,10 @@ a{
 }
 
 /* home page starts */
+
 .container{
   width: 100vw;
-  height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,6 +32,18 @@ a{
   background-repeat: no-repeat;
 
 } 
+
+.home-container{ 
+  max-width: 500px;
+  max-height: 100%;
+  margin: 15px;
+  padding-left: 23px;
+  background:   #efecec; 
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
 
 .container h1{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
@@ -51,15 +64,14 @@ a{
   padding: 8px 16px;
   border: 2px solid transparent;
   box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
-  background: rgb(218, 214, 223);
+  background: rgb(255, 255, 255);
   transition: all 0.1s ease 0s;
   margin: 8px ;
-  
-}
+} 
 
 .container button{
 margin: 12px;
-width: 250px;
+width: 270px;
 align-items: center;
 appearance: button;    
 background-color: rgb(56, 56, 169);
@@ -99,47 +111,50 @@ touch-action: manipulation;
   margin: 10px;
   display: flex;
   justify-content: center;
-}
+  max-width: 250px;
+  max-height: 80px;
+} 
+
 
 @media (max-width: 768px) {
-  .container h1 {
-    font-size: 32px;
-  }
-
-  .input-container input,
-  .container button,
-  .input-container textarea {
-    width: 90%;
-    max-width: none;
-  }
-
   .container {
-    padding: 10px;
+
+  }
+
+  .home-container {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .container h1 {
+    font-size: 1.8rem;
+  }
+
+  .container button {
+    font-size: 0.9rem;
+    padding: 0.7rem;
   }
 }
+
+
 
 @media (max-width: 480px) {
   .container h1 {
-    font-size: 28px;
-  }
-
-  .container {
-    padding: 5px;
+    font-size: 1.5rem;
   }
 
   .input-container input,
   .container button,
   .input-container textarea {
-    font-size: 14px;
-    padding: 8px;
+    /* width: 100%; */
+    font-size: 0.9rem;
   }
 }
 
 
+
+
 /* home page ends here */
-
-
-
 
 
 /* loginpage starts here */
@@ -321,7 +336,5 @@ touch-action: manipulation;
     display: none;
   }
 }
-
-
 
 /* login ends here */
