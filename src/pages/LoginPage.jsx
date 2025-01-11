@@ -42,7 +42,7 @@ function LoginPage() {
       <img src="background.jpg" alt="email" />
       <div className="right-login">
         <Header />
-        <h1>Welcome to SinghRopar Mailer</h1>
+        <h1>Welcome to Postweaver</h1>
         <p>Enter your SMTP Credentials to proceed.</p>
         <div className="form-login">
           <Form
