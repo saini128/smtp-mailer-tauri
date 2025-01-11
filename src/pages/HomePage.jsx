@@ -38,66 +38,73 @@ function HomePage() {
     window.location.reload();
   }
 
-  return (
+    return (
     <main className="container">
-      <h1>Compose Email</h1>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          sendEmail();
-        }}
-      >
+      <div className="home-container">
+        <h1>Compose Email</h1>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            sendEmail();
+          }}
+        >
+          <div className="input-container">
+            <input
+              type="text"
+              placeholder="From Name"
+              value={fromName}
+              onChange={(e) => setFromName(e.target.value)}
+            />
+          </div>
+
+          <div className="input-container">
+            <input
+              type="email"
+              placeholder="From Email"
+              value={fromEmail}
+              onChange={(e) => setFromEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="input-container">
+            <input
+              type="text"
+              placeholder="To (comma-separated)"
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+            />
+          </div>
+
+          <div className="input-container">
+            <input
+              type="text"
+              placeholder="CC (comma-separated)"
+              value={cc}
+              onChange={(e) => setCc(e.target.value)}
+            />
+          </div>
+
+          <div className="input-container">
+            <input
+              type="text"
+              placeholder="Subject"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+            />
+          </div>
+
+          <div className="input-container">
+            <textarea
+              placeholder="Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+          </div>
+        </form>
         <div className="input-container">
-          <input
-            type="text"
-            placeholder="From Name"
-            value={fromName}
-            onChange={(e) => setFromName(e.target.value)}
-          />
+          <button type="submit">Send</button>
+          <button onClick={logout}>Logout</button>
         </div>
-        <div className="input-container">
-          <input
-            type="email"
-            placeholder="From Email"
-            value={fromEmail}
-            onChange={(e) => setFromEmail(e.target.value)}
-          />
-        </div>
-        <div className="input-container">
-          <input
-            type="text"
-            placeholder="To (comma-separated)"
-            value={to}
-            onChange={(e) => setTo(e.target.value)}
-          />
-        </div>
-        <div className="input-container">
-          <input
-            type="text"
-            placeholder="CC (comma-separated)"
-            value={cc}
-            onChange={(e) => setCc(e.target.value)}
-          />
-        </div>
-        <div className="input-container">
-          <input
-            type="text"
-            placeholder="Subject"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-          />
-        </div>
-        <div className="input-container">
-          <textarea
-            placeholder="Message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-        </div>
-      </form>
-      <div className="input-container">
-        <button type="submit">Send</button>
-        <button onClick={logout}>Logout</button>
       </div>
     </main>
   );
