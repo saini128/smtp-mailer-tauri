@@ -24,6 +24,7 @@ function App() {
     checkCredentials();
   }, []);
 
-  return <div>{credentialsAvailable ? <HomePage /> : <LoginPage />}</div>;
+  return <div>{!credentialsAvailable ? <HomePage /> : <LoginPage />}</div>;
 }
+
 export default App;
