@@ -3,6 +3,7 @@ import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
+import NewPage from "./pages/NewPage";
 
 function App() {
   const [credentialsAvailable, setCredentialsAvailable] = useState(false);
@@ -24,7 +25,10 @@ function App() {
     checkCredentials();
   }, []);
 
-  return <div>{!credentialsAvailable ? <HomePage /> : <LoginPage />}</div>;
+  return <div>
+    {!credentialsAvailable ? <NewPage /> : <LoginPage />}
+    {/* <NewPage/> */}
+    </div>
 }
 
 export default App;
