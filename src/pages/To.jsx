@@ -24,7 +24,7 @@ function To() {
         <div className="users-list flex items-center gap-2 overflow-auto">
             <h1>To: </h1>
             <input 
-                className="border-none border-b-2 border-gray-400 focus:outline-none underline p-1" 
+                className="border-none border-b-2 bg-zinc-100 border-gray-400 focus:outline-none underline p-1" 
                 type="email" 
                 placeholder="Enter Value"
                 value={inputs.to}
@@ -33,7 +33,7 @@ function To() {
             />
 
             <select 
-                className="border-none border-b-2 border-gray-400 focus:outline-none underline p-1"
+                className="border-none bg-zinc-100 border-b-2 border-gray-400 focus:outline-none underline p-1"
                 value={selectedOption}
                 onChange={handleDropdownChange}
             >
@@ -44,7 +44,7 @@ function To() {
 
             {/* Conditionally render CC and BCC input fields */}
             {selectedOption === 'cc' && (
-                <div className="flex items-center gap-2">
+                <div className="flex bg-zinc-100 items-center gap-2">
                     <h1>CC: </h1>
                     <input 
                         className="border-none border-b-2 border-gray-400 focus:outline-none underline p-1" 
@@ -61,7 +61,7 @@ function To() {
                 <div className="flex items-center gap-2">
                     <h1>BCC: </h1>
                     <input 
-                        className="border-none border-b-2 border-gray-400 focus:outline-none underline p-1" 
+                        className="border-none bg-zinc-100 border-b-2 border-gray-400 focus:outline-none underline p-1" 
                         type="text" 
                         placeholder="Enter BCC Email"
                         value={inputs.bcc}
