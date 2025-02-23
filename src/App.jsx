@@ -4,6 +4,7 @@ import "./App.css";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import NewPage from "./pages/NewPage";
+import TextFormatter from "./pages/TextFormatter";
 
 function App() {
   const [credentialsAvailable, setCredentialsAvailable] = useState(false);
